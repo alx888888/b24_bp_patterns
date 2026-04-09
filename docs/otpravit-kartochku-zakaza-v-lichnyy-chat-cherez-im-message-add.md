@@ -1,6 +1,6 @@
 # Отправить карточку заказа в личный чат через im.message.add
 
-- Раздел: Примеры использования
+- Тип: Кейс
 - Документация: https://apidocs.bitrix24.com/api-reference/chats/messages/im-message-add.html
 - Дополнительно: https://apidocs.bitrix24.com/api-reference/chats/messages/attachments.html
 

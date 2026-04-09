@@ -2,7 +2,7 @@
 
 - Источник: https://it-solution.kdb24.ru/public/restactivity/
 - Разделов: 6
-- Статей: 35
+- Статей: 34
 
 ## Оглавление
 
@@ -43,7 +43,6 @@
 - [Создать Встречу с привязкой к Компании](sozdat-vstrechu-s-privyazkoy-k-kompanii.md)
 - [Получить количество записей CRM](poluchit-kolichestvo-zapisey-crm.md)
 - [Поиск начальника подразделения, создание подзадачи, список товаров в сделке](poisk-nachalnika-podrazdeleniya-sozdanie-podzadachi-spisok-tovarov-v-sdelke.md)
-- [Отправить карточку заказа в личный чат через im.message.add](otpravit-kartochku-zakaza-v-lichnyy-chat-cherez-im-message-add.md)
 
 ### Обработка запросов
 
