@@ -44,6 +44,38 @@ https://compass.bitrix24.ru/rest/41059/64wii9ojy8qp3vai/im.message.add?DIALOG_ID
 JSONPath:
 `$.products.*.purchasingPrice`
 
+#### Получить связанные элементы смарт-процесса с сортировкой по полю номера:
+
+Метод:
+`crm.item.list`
+
+Запрос:
+```json
+{
+  "entityTypeId": 1044,
+  "useOriginalUfNames": "Y",
+  "select": [
+    "id",
+    "title",
+    "stageId",
+    "categoryId",
+    "parentId1038",
+    "UF_CRM_10_1775151696181",
+    "UF_CRM_10_1775699211906"
+  ],
+  "filter": {
+    "parentId1038": 40,
+    "categoryId": 20
+  },
+  "order": {
+    "UF_CRM_10_1775151696181": "ASC"
+  }
+}
+```
+
+JSONPath:
+`$.items[*].UF_CRM_10_1775699211906`
+
 
 # Сборки и готовые шаблоны
 
