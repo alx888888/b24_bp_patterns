@@ -76,6 +76,102 @@ JSONPath:
 JSONPath:
 `$.items[*].UF_CRM_10_1775699211906`
 
+#### Отправить карточку выезда в личный чат через im.message.add:
+
+Метод:
+`im.message.add`
+
+Запрос:
+```json
+{
+  "DIALOG_ID": "{{=substr({{Константы глобальные: Бригадир}}, 5)}}",
+  "MESSAGE": "[SIZE=20]▶️ [B]{{Сделка}}-{{_Номер выезда}} НАЗНАЧЕН:[/B] {{Плановая дата выезда}}, {{Диапазон времени (текст)}}[/SIZE]",
+  "SYSTEM": "N",
+  "URL_PREVIEW": "N",
+  "ATTACH": {
+    "ID": 1,
+    "COLOR_TOKEN": "primary",
+    "BLOCKS": [
+      {
+        "GRID": [
+          {
+            "NAME": "Источник",
+            "VALUE": "{=A43494_16201_78654_83104:SOURCE_ID > printable}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          },
+          {
+            "NAME": "Адрес",
+            "VALUE": "{{Адрес выезда}}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          },
+          {
+            "NAME": "Домофон / Код",
+            "VALUE": "{{Домофон / Код}}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          },
+          {
+            "NAME": "Подъезд и этаж",
+            "VALUE": "{{Подъезд и этаж}}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          },
+          {
+            "NAME": "Клиент",
+            "VALUE": "{{Контакты клиента}}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          },
+          {
+            "NAME": "Комментарий",
+            "VALUE": "{{Комментарий для мастера}}",
+            "DISPLAY": "ROW",
+            "WIDTH": 200
+          }
+        ]
+      },
+      {
+        "DELIMITER": {
+          "SIZE": 600,
+          "COLOR": "#0B8FE8"
+        }
+      },
+      {
+        "MESSAGE": "[B]Работы:[/B][BR]{=A84142_96083_1306_13335:rest_result_1}{=A84142_96083_1306_13335:rest_result_2}{=A84142_96083_1306_13335:rest_result_3}{=A84142_96083_1306_13335:rest_result_4}"
+      }
+    ]
+  },
+  "KEYBOARD": {
+    "BUTTONS": [
+      {
+        "TEXT": "✓ ЗАВЕРШИТЬ ВЫЕЗД",
+        "LINK": "https://ospcrm.bitrix24.ru/company/personal/bizproc/{{_ID задания по выезду}}/",
+        "DISPLAY": "LINE",
+        "BG_COLOR_TOKEN": "primary",
+        "WIDTH": 200
+      },
+      {
+        "TEXT": "→ ПОЗВОНИТЬ КЛИЕНТУ",
+        "ACTION": "CALL",
+        "ACTION_VALUE": "{=A43494_16201_78654_83104:UF_CRM_1775155723330}",
+        "DISPLAY": "LINE",
+        "BG_COLOR_TOKEN": "primary",
+        "WIDTH": 200
+      },
+      {
+        "TEXT": "✗ ОТМЕНИТЬ / ПЕРЕНОС",
+        "LINK": "https://ospcrm.bitrix24.ru/company/personal/bizproc/124/",
+        "DISPLAY": "LINE",
+        "BG_COLOR_TOKEN": "alert",
+        "WIDTH": 200
+      }
+    ]
+  }
+}
+```
+
 
 # Сборки и готовые шаблоны
 
