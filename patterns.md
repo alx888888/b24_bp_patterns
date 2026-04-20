@@ -20,6 +20,9 @@ https://rus-line.bitrix24.ru/rest/3178/65s7isk1fo68a6hb/crm.activity.update?id={
 #### Отправка системного сообщения в диалог:
 https://compass.bitrix24.ru/rest/41059/64wii9ojy8qp3vai/im.message.add?DIALOG_ID=chat52399&MESSAGE=ВАШ_ТЕКСТ_СООБЩЕНИЯ&SYSTEM=Y
 
+#### Остановить бизнес-процесс по TaskId задания "Запрос дополнительной информации" через batch:
+https://mobileocean.bitrix24.ru/rest/186/izghgiqpd090a9ht/batch.json?halt=0&cmd[get_task]=bizproc.task.list?filter[ID]={{TaskId}}&select[0]=ID&select[1]=WORKFLOW_ID&cmd[stop_workflow]=bizproc.workflow.terminate?ID=$result[get_task][0][WORKFLOW_ID]&STATUS=Stopped
+
 ## REST Активити Б24
 
 #### Получить список себестоимостей товаров:
