@@ -288,6 +288,12 @@ https://helpdesk.bitrix24.com/open/22132640/
 
 # Шаблоны печатных форм документов
 
+#### Денежные переменные товарной таблицы с копейками:
+{ProductsProductPriceExclusive~WZ=Y}
+{ProductsProductPriceRaw~WZ=Y}
+{ProductsProductPriceRawSum~WZ=Y}
+
+#### Итоговые суммы с копейками:
 {TotalRaw~WZ=Y, NS=N}
 {TaxesTaxValue~WZ=Y, NS=N}
 {TotalSum~WZ=Y, NS=N}
