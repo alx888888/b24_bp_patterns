@@ -293,6 +293,25 @@ https://helpdesk.bitrix24.com/open/22132640/
 {ProductsProductPriceRaw~WZ=Y}
 {ProductsProductPriceRawSum~WZ=Y}
 
+#### Товарная таблица счета с НДС и скидкой:
+Цена без НДС:
+{ProductsProductPriceExclusive~WZ=Y}
+
+Процент НДС:
+{ProductsProductTaxRate}
+
+Процент скидки:
+{ProductsProductDiscountRate}
+
+Кол-во:
+{ProductsProductQuantity}
+
+Сумма без НДС с учетом скидки:
+{ProductsProductPriceExclusiveSum~WZ=Y}
+
+Примечание:
+Стандартной проверенной переменной для суммы строки с одновременным учетом скидки и НДС пока нет. `{ProductsProductPriceBruttoSum~WZ=Y}` может не учитывать скидку в нужной логике печатной формы.
+
 #### Итоговые суммы с копейками:
 {TotalRaw~WZ=Y, NS=N}
 {TaxesTaxValue~WZ=Y, NS=N}
