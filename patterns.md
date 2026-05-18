@@ -288,31 +288,42 @@ https://helpdesk.bitrix24.com/open/22132640/
 
 # Шаблоны печатных форм документов
 
-#### Денежные переменные товарной таблицы с выводом копеек:
-Цена без НДС с копейками:
-{ProductsProductPriceExclusive~WZ=Y}
-
-Цена с НДС с копейками:
-{ProductsProductPriceRaw~WZ=Y}
-
-Сумма строки с НДС с копейками:
-{ProductsProductPriceRawSum~WZ=Y}
-
 #### Товарная таблица счета с НДС и скидкой:
-Цена без НДС:
-{ProductsProductPriceExclusive~WZ=Y}
+Номер строки:
+{ProductsIndex}
 
-Процент НДС:
-{ProductsProductTaxRate}
-
-Процент скидки:
-{ProductsProductDiscountRate}
+Название товара:
+{ProductsProductName}
 
 Кол-во:
 {ProductsProductQuantity}
 
-Итоговая сумма строки без НДС с учетом скидки:
+Ед.:
+{ProductsProductMeasureName}
+
+Цена за ед. без НДС с учетом скидки:
+{ProductsProductPriceExclusive~WZ=Y}
+
+Процент НДС со знаком `%`:
+{ProductsProductTaxRateName}
+
+Процент скидки:
+{ProductsProductDiscountRate}
+
+Цена за ед. с НДС и скидкой:
+{ProductsProductPrice~WZ=Y}
+
+Сумма строки с НДС и скидкой:
+{ProductsProductPriceSum~WZ=Y}
+
+Сумма строки без НДС с учетом скидки:
 {ProductsProductPriceExclusiveSum~WZ=Y}
+
+Сумма НДС по строке:
+{ProductsProductTaxValueSum~WZ=Y}
+
+Примечание:
+Для счетов со скидками не использовать `{ProductsProductPriceRaw~WZ=Y}`, `{ProductsProductPriceRawSum~WZ=Y}` и `{ProductsProductPriceBruttoSum~WZ=Y}` как цену/сумму с НДС после скидки. В проверенном шаблоне правильные значения дают `{ProductsProductPrice~WZ=Y}` и `{ProductsProductPriceSum~WZ=Y}`.
 
 #### Итоговые суммы с копейками:
 Итого без НДС с копейками:
