@@ -15,7 +15,10 @@ https://bta.bitrix24.ru/rest/212/wvlg431n3gpwqyfo/tasks.task.complete?taskId={=D
 https://rus-line.bitrix24.ru/rest/3178/65s7isk1fo68a6hb/crm.activity.update?id={{Дело ID}}&fields[COMPLETED]=Y
 
 #### Обновить название чата:
-{{Константы глобальные: Вебхук для БП}}im.chat.updateTitle?CHAT_ID={{ID чата}}&TITLE={{=urlencode({=Variable:temp})}}
+{{Константы глобальные: Вебхук для БП}}im.chat.updateTitle?CHAT_ID={{_ID чата}}&TITLE={=A91917_57333_16838_17204:TITLE} {{=date("d.m.Y", {{Когда создан}})}} ({{=substr({{Стадия > printable}}, 5)}})
+
+Примечание:
+В `REST Активити Б24` `urlencode()` для `TITLE` не нужен: активити само упаковывает значение в URL. Если отправлять запрос напрямую через обычный webhook URL вне активити, спецсимволы в `TITLE` нужно кодировать.
 
 #### Отправка системного сообщения в диалог:
 https://compass.bitrix24.ru/rest/41059/64wii9ojy8qp3vai/im.message.add?DIALOG_ID=chat52399&MESSAGE=ВАШ_ТЕКСТ_СООБЩЕНИЯ&SYSTEM=Y
