@@ -18,13 +18,14 @@ https://rus-line.bitrix24.ru/rest/3178/65s7isk1fo68a6hb/crm.activity.update?id={
 {{Константы глобальные: Вебхук для БП}}im.chat.updateTitle?CHAT_ID={{_ID чата}}&TITLE={=A91917_57333_16838_17204:TITLE} {{=date("d.m.Y", {{Когда создан}})}} ({{=substr({{Стадия > printable}}, 5)}})
 
 Примечание:
-В `REST Активити Б24` `urlencode()` для `TITLE` не нужен: активити само упаковывает значение в URL. Если отправлять запрос напрямую через обычный webhook URL вне активити, спецсимволы в `TITLE` нужно кодировать.
+В Активити Б24 `Входящий Вебхук` `urlencode()` для `TITLE` не нужен: активити само упаковывает значение в URL.
 
 #### Отправка системного сообщения в диалог:
 https://compass.bitrix24.ru/rest/41059/64wii9ojy8qp3vai/im.message.add?DIALOG_ID=chat52399&MESSAGE=ВАШ_ТЕКСТ_СООБЩЕНИЯ&SYSTEM=Y
 
 #### Остановить два бизнес-процесса и запустить новый через batch:
 https://mobileocean.bitrix24.ru/rest/186/izghgiqpd090a9ht/batch.json?halt=1&cmd[start_new]=bizproc.workflow.start%3FTEMPLATE_ID%3D248%26DOCUMENT_ID%5B0%5D%3Dcrm%26DOCUMENT_ID%5B1%5D%3DBitrix%5CCrm%5CIntegration%5CBizProc%5CDocument%5CDynamic%26DOCUMENT_ID%5B2%5D%3DDYNAMIC_1036_24&cmd[stop_control]=bizproc.workflow.terminate%3FID%3D69e60ab37fabd8.44693628%26STATUS%3DStopped%20from%20BP&cmd[stop_self]=bizproc.workflow.terminate%3FID%3D69e60aa3a0aac1.81996900%26STATUS%3DStopped%20from%20BP
+
 
 ## REST Активити Б24
 
