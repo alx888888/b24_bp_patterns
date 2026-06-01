@@ -331,6 +331,12 @@ https://helpdesk.bitrix24.com/open/22132640/
 Примечание:
 Для счетов со скидками не использовать `{ProductsProductPriceRaw~WZ=Y}`, `{ProductsProductPriceRawSum~WZ=Y}` и `{ProductsProductPriceBruttoSum~WZ=Y}` как цену/сумму с НДС после скидки. В проверенном шаблоне правильные значения дают `{ProductsProductPrice~WZ=Y}` и `{ProductsProductPriceSum~WZ=Y}`.
 
+#### Универсальная строка покупателя для организации и ИП:
+{RequisiteRqCompanyFullName}{RequisiteRqCompanyName}{RequisiteRqLastName} {RequisiteRqFirstName} {RequisiteRqSecondName} ИНН {RequisiteRqInn} {RequisiteRegisteredAddressText}{RequisiteHomeAddressText}
+
+Примечание:
+Рабочий вариант для шаблона счета, где покупатель может использовать реквизиты организации или ИП. Для ИП название собирается из отдельных полей ФИО, адрес берется из адреса регистрации.
+
 #### Итоговые суммы с копейками:
 Итого без НДС с копейками:
 {TotalRaw~WZ=Y, NS=N}
