@@ -203,3 +203,29 @@ JSONPath:
 
 Примечание:
 `{{ID}}` — ID счёта, `{{Сделка}}` — ID сделки. URL-кодирование `filter%5B%3DownerType%5D` и `filter%5B%3DownerId%5D` нужно для batch, иначе Битрикс24 возвращает ошибку `REQUIRED_ARG_MISSING` по аргументу `=ownerType`.
+
+#### Остановить запущенные бизнес-процессы по текущему элементу смарт-процесса 1050 через batch:
+
+Метод:
+`batch`
+
+Запрос:
+```json
+{
+  "halt": 0,
+  "cmd": {
+    "get_wf": "bizproc.workflow.instances?SELECT%5B0%5D=ID&SELECT%5B1%5D=TEMPLATE_ID&SELECT%5B2%5D=DOCUMENT_ID&FILTER%5BMODULE_ID%5D=crm&FILTER%5BDOCUMENT_ID%5D=DYNAMIC_1050_{=Document:ID}",
+    "stop_0": "bizproc.workflow.terminate?ID=$result[get_wf][0][ID]&STATUS=Stopped%20by%20batch",
+    "stop_1": "bizproc.workflow.terminate?ID=$result[get_wf][1][ID]&STATUS=Stopped%20by%20batch",
+    "stop_2": "bizproc.workflow.terminate?ID=$result[get_wf][2][ID]&STATUS=Stopped%20by%20batch",
+    "stop_3": "bizproc.workflow.terminate?ID=$result[get_wf][3][ID]&STATUS=Stopped%20by%20batch",
+    "stop_4": "bizproc.workflow.terminate?ID=$result[get_wf][4][ID]&STATUS=Stopped%20by%20batch"
+  }
+}
+```
+
+JSONPath:
+`$`
+
+Примечание:
+`DYNAMIC_1050_{=Document:ID}` — `DOCUMENT_ID` текущего элемента смарт-процесса 1050. `halt: 0` нужен, чтобы batch продолжил выполнение, если слотов `stop_N` больше, чем найденных активных процессов. `FILTER%5BENTITY%5D` и `FILTER%5B%3DDOCUMENT_ID%5D` в этом кейсе не использовать: рабочий вариант ищет только по `MODULE_ID` и `DOCUMENT_ID`.
